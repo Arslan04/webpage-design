@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Method Overriding</title>
+<style>
+  body{
+      background-image: linear-gradient(to bottom, rgb(24, 87, 164), rgb(218, 221, 220));
+  }
+  p{
+font-family: "Helvetica Neue",Helvetica;
+  }
+  
+</style>
+
+</head>
+<body >
+<p>
+ <h1 style="color:rgb(27, 30, 11);" align="center"> METHOD OVERRIDING </h1><br></p>
+ <p style="text-align:center;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Method_overriding_in_subclass.svg/1200px-Method_overriding_in_subclass.svg.png "  height="50%" width="20%" alt="no img" ></p><br>
+ <p><h3>If a subclass provides the specific implementation of the method that has been declared by one of its parent class, it is known as method overriding.
+criteria:The subclass must have the same method as declared in the parent class.</p>
+<p><b>A few of its usages</b></p>
+<p style="font-family: Helvetica Neue">1.Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.<br>
+2.Method overriding is used for runtime polymorphism<br></p>
+<p><b>Rules for method overriding</b></p>
+<p style="font-family: Helvetica Neue">1.The method in the parent class and the sub class must have the same name.<br>
+2.Both the methods in the parent and the sub class must have same parameters.<br>
+3.There must be an IS-A relationship (inheritance).</p><h3><br></p>
+<p><b>Example Code</b></p>
+<p style="font-family: Helvetica Neue">class Bike{  <br>
+  void run()<br>
+  {<br>
+    System.out.println("Bike is running");<br>
+  }  <br>
+}  <br>
+//Creating a sub class  <br>
+class Scooter extends Bike{  <br>
+  public static void main(String args[]){  <br>
+  //creating an object of sub class  <br>
+  Scooter scoo = new Scooter();  <br>
+  //calling the method with sub class object or instance  <br>
+  scoo.run();  <br>
+  }  <br>
+}  <br>
+</p>
+<img src="./Screenshot 2023-04-21 204926.png" alt="no image">
+<p><b>A real world example of method overriding</b></p>
+<p style="font-family: Helvetica Neue">
+Consider a scenario where Bank is a class that provides functionality to get the rate of interest. However, the rate of interest varies according to banks. For example, SBI, ICICI and AXIS banks could provide 8%, 7%, and 9% rate of interest.<br>
+
+//Java Program to demonstrate the real scenario of Java Method Overriding<br>
+//where three classes are overriding the method of a parent class.<br>
+//Creating a parent class.<br>  
+class Bank{<br>
+int getRateOfInterest(){return 0;}<br> 
+}<br>
+//Creating child classes.<br>  
+class SBI extends Bank{ <br> 
+int getRateOfInterest(){return 8;} <br> 
+}<br>  
+  
+class ICICI extends Bank{<br> 
+int getRateOfInterest(){return 7;}  <br>
+}  <br>
+class AXIS extends Bank{  <br>
+int getRateOfInterest(){return 9;}  <br>
+}  <br>
+//Test class to create objects and call the methods  <br>
+class Test2{  <br>
+public static void main(String args[]){  <br>
+SBI s=new SBI(); <br> 
+ICICI i=new ICICI(); <br> 
+AXIS a=new AXIS();  <br>
+System.out.println("SBI Rate of Interest: "+s.getRateOfInterest()); <br> 
+System.out.println("ICICI Rate of Interest: "+i.getRateOfInterest()); <br> 
+System.out.println("AXIS Rate of Interest: "+a.getRateOfInterest());  <br>
+}  <br>
+} <br> 
+<img src="./Screenshot 2023-04-21 204905.png" height="30%" width="50%" alt="no img">
+</p>
+</body>
+</html>

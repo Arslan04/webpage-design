@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>DYNAMIC METHOD DISPATCH</title>
+<style>
+    body{
+        background-image: linear-gradient(to top, rgb(72, 152, 186), rgba(117, 52, 196, 0));
+    }
+    p{
+font-family: "Helvetica Neue",Helvetica;
+    }
+    
+</style>
+
+</head>
+<body bgcolor="">
+<h1><p><B><U><center>DYNAMIC METHOD DISPATCH</center></U></B></p></h1>
+<p> Dynamic method dispatch is the mechanism in which a call to an overridden method is resolved at run time instead of compile time. This is an important concept because of how Java implements run-time polymorphism.</p>
+<p>Java uses the principle of 'a superclass reference variable can refer to a subclass object' to resolve calls to overridden methods at run time. When a superclass reference is used to call an overridden method, Java determines which version of the method to execute based on the type of the object being referred to at the time call.</p>
+<p>In other words, it is the type of object being referred to that determines which version of an overridden method will be executed.</p>
+<p><B>ADVANTAGES OF RUNTIME POLYMORPHISM</B></p>
+<ul>
+    <li>
+        Runtime polymorphism in Java allows the superclass to define as well as share its own method and also allows the sub-classes to define their own implementation.
+    </li>
+    <li>
+        The subclasses have the privilege to use the same method as their parent or define their specific implementation for the same method wherever necessary. Therefore, in one way, it supports code reusability when using the same method and implementation
+    </li>
+    <li>
+        It allows method overriding which is the basis for runtime polymorphism in Java
+    </li>
+</ul>
+<p><B>Let's create a Java program to illustrate Dynamic Method Dispatch using hierarchical inheritance.</B></p>
+<p>
+    &nbsp;    package dynamicMethodDispatchProgram; <br>
+public class A <br>
+{ <br>
+    &nbsp;void m1() <br>
+    &nbsp;{ <br>
+        &nbsp;&nbsp;System.out.println("m1-A"); <br>
+        &nbsp;} <br>
+} <br>
+public class B extends A <br>
+{ <br>
+// Overriding m1() method. <br>
+&nbsp;void m1() <br>
+&nbsp;{ <br>
+    &nbsp;&nbsp;System.out.println("m1-B"); <br>
+    &nbsp;} <br>
+} <br>
+public class C extends B <br>
+{ <br>
+// Overriding m1() method. <br>
+&nbsp;void m1() <br>
+&nbsp;{ <br>
+    &nbsp;&nbsp;System.out.println("m1-C"); <br>
+    &nbsp;} <br>
+} <br>
+public class Test <br>
+{ <br>
+    &nbsp;public static void main(String[] args) <br>
+    &nbsp;{ <br>
+        &nbsp;&nbsp;A a = new A(); // Object of type A. That is "a" is a reference variable of type A which is pointing to object of class A. <br>
+        &nbsp;&nbsp;a.m1(); <br>
+
+      &nbsp;&nbsp;B b = new B(); // Object of type B. "b" is a reference variable of type B which is pointing to object of class B. <br>
+      &nbsp;&nbsp;b.m1(); <br>
+
+      &nbsp;&nbsp;C c = new C(); // Object of type C. "c" is a reference variable of type C which is pointing to object of class C. <br>
+      &nbsp;&nbsp;c.m1(); <br>
+  
+     &nbsp;&nbsp;A a2; // A reference variable of type A. <br>
+     &nbsp;&nbsp;a2 = b; // Reference a1 refers to Class B's object. <br>
+     &nbsp;&nbsp;a2.m1(); <br>
+     &nbsp;&nbsp;a2 = c; // Reference a1 refers to Class C's object. <br>
+     &nbsp;&nbsp;a2.m1(); <br>
+     &nbsp;&nbsp;B b2 = c; // Reference variable b2 of type B refers to class C's object. <br>
+     &nbsp;&nbsp;b2.m1(); <br>
+     &nbsp;} <br>
+}<br> 
+</p>
+<p><B>Output</B></p>
+<p>
+    m1-A <br>
+    m1-B <br>
+    m1-C <br>
+    m1-B <br>
+    m1-C <br>
+    m1-C <br>
+</p>
+<p><B>What happened actually? Let's understand the logic</B></p>
+<p>In the above example, we have created one super class called A and it's two sub classes B and C. These sub classes override m1( ) method.</p>
+<ol>
+    <li>
+        Inside the main() method in class Test, initially, objects of type A, B, and C are declared.
+    </li>
+    <ul>
+        <li>When a.m1(); will be executed, it will call method m1() of class A because reference variable "a" is pointing towards object of class A.</li>
+        <li>b.m1(); will call m1() of class B because reference variable "b" refers to object of class B.</li>
+        <li>c.m1(); will invoke m1() of class C because reference variable "c" is pointing towards object of class C.</li>
+    </ul>
+    <li>
+        When A a2 is declared, initially it will point to null.
+    </li>
+    <ul>
+        <li>a2.m1(); will call m1() of class B because "a2" is reference variable of type A but it is pointing towards class B's object.</li>
+        <li>a2.m1(); will call m1() of class C. This is because "a2" is referring to class C's object.</li>
+    </ul>
+    <li>
+        b2.m1(); will call m1() of class C because 'b2' of type B is pointing to class C's object.
+    </li>
+</ol>
+</body>
+</html>

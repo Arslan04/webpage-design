@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Basics of Inheritance</title>
+<style>
+    body{
+        background-image: linear-gradient(to top, rgb(14, 88, 163), rgb(237, 237, 237));
+    }
+    p{
+font-family: "Helvetica Neue",Helvetica;
+    }
+    
+</style>
+</head>
+<body bgcolor=white>
+<h1><B><U><center>Inheritance</center></U></B></h1>
+<p> Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object.</p>
+<p>The idea behind inheritance in Java is that we can create new classes that are built upon existing classes. When we inherit from an existing class, we can reuse methods and fields of the parent class. Moreover, we can add new methods and fields in our current class also.</p>
+<p><B>Why Do We Need Java Inheritance?</B></p>
+<ul>
+    <li>
+        <B>Code Reusability:</B> The code written in the Superclass is common to all subclasses. Child classes can directly use the parent class code.
+    </li>
+    <li>
+       <B>Method Overriding:</B> Method Overriding is achievable only through Inheritance. It is one of the ways by which Java achieves Run Time Polymorphism.
+    </li>
+    <li>
+        <B>Abstraction:</B> The concept of abstract where we do not have to provide all details is achieved through inheritance. Abstraction only shows the functionality to the user.
+    </li>
+</ul>
+<p><B>Terms used in Inheritance-</B></p>
+<ol>
+    <li>
+        <B>Class:</B> A class is a group of objects which have common properties. It is a template or blueprint from which objects are created.
+    </li>
+    <li>
+        <B>Sub Class/Child Class:</B> Subclass is a class which inherits the other class. It is also called a derived class, extended class, or child class.
+    </li>
+    <li>
+        <B>Upper Class/Parent Class:</B> Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.
+    </li>
+    <li>
+        <B>Reusability:</B> As the name specifies, reusability is a mechanism which facilitates you to reuse the fields and methods of the existing class when you create a new class. You can use the same fields and methods already defined in the previous class.
+    </li>
+</ol>
+<center><img src="./inheritance.jpeg" align="centre" width="40%" height="40%" ></center>
+<p><B>The syntax of Java Inheritance:</B></p>
+
+<p>
+    class Subclass-name extends Superclass-name<br>
+    {<br>
+        &nbsp;&nbsp;//methods and fields<br>
+    }<br> 
+</p>
+<p>The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.</p>
+<p><B>Consider that  Programmer is the subclass and Employee is the superclass. The relationship between the two classes is Programmer IS-A Employee. It means that Programmer is a type of Employee.</B></p>
+<p>
+    class Employee{<br>
+        &nbsp;&nbsp;float salary=40000;<br> 
+       }<br>
+       class Programmer extends Employee{<br> 
+        &nbsp;&nbsp;int bonus=10000;<br> 
+        &nbsp;&nbsp;public static void main(String args[]){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Programmer p=new Programmer();<br> 
+            &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Programmer salary is:"+p.salary);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Bonus of Programmer is:"+p.bonus);<br>
+       }<br>
+       }<br> 
+</p>
+<p><B>Output</B></p>
+<p> Programmer salary is:40000.0<br>
+    Bonus of programmer is:10000
+</p>
+<p>In the above example, Programmer object can access the field of own class as well as of Employee class i.e. code reusability.</p>
+</body>
+</html>

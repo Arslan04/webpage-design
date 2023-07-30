@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Types of inheritance in java</title>
+<style>
+  body{
+      background-image: linear-gradient(to bottom, rgba(199, 219, 222, 0.795), rgb(71, 145, 160));
+  }
+  p{
+font-family: "Helvetica Neue",Helvetica;
+  }
+</style>
+</head>
+<body>
+<p>
+ <h1 style="color:blue;"><center> TYPES OF INHERITANCE IN JAVA </center></h1><br>
+ <h3>On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.</p>
+<p><b>In java programming, multiple and hybrid inheritance is supported through interface only.</b></p>
+<center><img src="https://static.javatpoint.com/images/core/typesofinheritance.jpg" height="40%" width="50%" alt="no img"></center><br>
+<p><b>Note: Multiple inheritance is not supported in Java through class.</b><br>
+
+  <p><b>When one class inherits multiple classes, it is known as multiple inheritance. <br>For Example:</b><br>
+
+  <center><img src="https://static.javatpoint.com/images/core/multiple.jpg" height="40%" width="50%" alt="no img"></center><br>
+ <h2> Single Inheritance Example</h2><br></p>
+<p><b>When a class inherits another class, it is known as a single inheritance. In the example given below, Dog class inherits the Animal class, so there is the single inheritance.</b></p>
+<p>1.The method in the parent class and the sub class must have the same name.<br>
+<p><b>Example Code</b></p>
+<p><b>class Animal{<br>
+  void eat(){System.out.println("eating...");}<br>
+}<br>
+  class Dog extends Animal{  <br>
+  void bark(){System.out.println("barking...");}  <br>
+  }  <br>
+  class TestInheritance{  <br>
+  public static void main(String args[]){  <br>
+  Dog d=new Dog();  <br>
+  d.bark();  <br>
+  d.eat();  <br>
+  }} </b></p><br><br>
+  <h2> Multilevel Inheritance Example</h2><br></p>
+<p><b>When there is a chain of inheritance, it is known as multilevel inheritance. As you can see in the example given below, BabyDog class inherits the Dog class which again inherits the Animal class, so there is a multilevel inheritance.</b></p>
+
+<p><b>Example Code</b></p>
+<p><b>class Animal{  <br>
+  void eat(){System.out.println("eating...");}  <br>
+  }  <br>
+  class Dog extends Animal{  <br>
+  void bark(){System.out.println("barking...");} <br> 
+  } <br> 
+  class BabyDog extends Dog{  <br>
+  void weep(){System.out.println("weeping...");}  <br>
+  }  <br>
+  class TestInheritance2{  <br>
+  public static void main(String args[]){  <br>
+  BabyDog d=new BabyDog(); <br> 
+  d.weep();<br>  
+  d.bark(); <br> 
+  d.eat();  <br>
+  }}  </b></p><br>
+
+  <h2> Hierarchical Inheritance Example</h2><br></p>
+<p><b>When two or more classes inherits a single class, it is known as hierarchical inheritance. In the example given below, Dog and Cat classes inherits the Animal class, so there is hierarchical inheritance.</b></p>
+
+<p><b>Example Code</b></p>
+<p><b>class Animal{  <br>
+  void eat(){System.out.println("eating...");}   <br>
+  }   <br>
+  class Dog extends Animal{  <br> 
+  void bark(){System.out.println("barking...");}   <br>
+  }   <br>
+  class Cat extends Animal{   <br>
+  void meow(){System.out.println("meowing...");}  <br> 
+  }   <br>
+  class TestInheritance3{   <br>
+  public static void main(String args[]){   <br>
+  Cat c=new Cat();   <br>
+  c.meow();   <br>
+  c.eat();   <br>
+  //c.bark();//C.T.Error   <br>
+  }} </b></p><br>
+
+  <h2>Q) Why multiple inheritance is not supported in java?</h2><br></p>
+  <p><b>To reduce the complexity and simplify the language, multiple inheritance is not supported in java.<br>
+
+    Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class.<br>
+    
+    Since compile-time errors are better than runtime errors, Java renders compile-time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error.</b></p><br>
+
+    <p><b>Example Code</b></p>
+    <p><b>class A{  <br>
+      void msg(){System.out.println("Hello");}  <br>
+      }  <br>
+      class B{  <br>
+      void msg(){System.out.println("Welcome");}  <br>
+      }  <br>
+      class C extends A,B{//suppose if it were <br> 
+         
+       public static void main(String args[]){ <br> 
+         C obj=new C();  <br>
+         obj.msg();//Now which msg() method would be invoked?<br>  
+      }  <br>
+      }   </b></p><br>
+</body>
+</html>
